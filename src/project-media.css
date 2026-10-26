@@ -1,0 +1,163 @@
+.project-card .project-visual.screenshot-visual,
+.concept-card:last-child:nth-child(odd) .project-visual.screenshot-visual {
+  height: auto;
+  aspect-ratio: 16 / 9;
+  background: #080d17;
+}
+
+.screenshot-visual > img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.project-cover:has(.screenshot-visual) .featured-badge {
+  top: auto;
+  bottom: 12px;
+}
+
+.screenshot-count {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  z-index: 7;
+  padding: 7px 10px;
+  border: 1px solid #c6d9f04d;
+  border-radius: 5px;
+  background: #080d17e8;
+  color: #f0f5ff;
+  font: 12px var(--mono);
+}
+
+.project-gallery {
+  background: #080d17;
+}
+
+.project-gallery figure {
+  margin: 0;
+}
+
+.project-gallery .project-visual.screenshot-visual {
+  height: auto;
+  aspect-ratio: 16 / 9;
+  max-height: 55dvh;
+  background: #080d17;
+}
+
+.gallery-caption {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 14px 22px;
+  border-top: 1px solid #b9a0ff26;
+  color: #d8d4e6;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.gallery-counter {
+  color: var(--mint);
+  font: 12px/1.8 var(--mono);
+  white-space: nowrap;
+}
+
+.gallery-controls {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 0 22px 18px;
+}
+
+.gallery-controls > .icon-button {
+  flex-shrink: 0;
+}
+
+.gallery-previous > svg {
+  transform: rotate(180deg);
+}
+
+.gallery-thumbnails {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex: 1;
+  min-width: 0;
+}
+
+.gallery-thumbnails > button {
+  width: 100px;
+  min-width: 0;
+  aspect-ratio: 16 / 9;
+  padding: 2px;
+  border: 2px solid #ffffff26;
+  border-radius: 5px;
+  background: #080d17;
+  opacity: .7;
+  transition: border-color .2s, opacity .2s;
+}
+
+.gallery-thumbnails > button[aria-pressed="true"] {
+  opacity: 1;
+  border-color: var(--mint);
+}
+
+.gallery-thumbnails > button:hover {
+  opacity: 1;
+  border-color: var(--purple);
+}
+
+.gallery-thumbnails img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 2px;
+}
+
+.project-card .project-visual.portrait-cover {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-rows: minmax(0, 1fr);
+  gap: 10px;
+  padding: 18px 14px;
+  background: radial-gradient(ellipse at 40% 40%, #352045, #0b101d 80%);
+}
+
+.portrait-cover > img {
+  min-width: 0;
+  min-height: 0;
+}
+
+.project-gallery .project-visual.screenshot-visual.portrait-visual {
+  height: min(62dvh, 620px);
+  max-height: none;
+  aspect-ratio: auto;
+  padding: 16px;
+  background: radial-gradient(ellipse at 50% 40%, #282039, #080d17 80%);
+}
+
+.portrait-gallery .gallery-thumbnails > button {
+  width: 55px;
+  aspect-ratio: 1 / 2;
+}
+
+.category-dot.design {
+  background: #f2b1e6;
+}
+
+.project-access-note {
+  margin-top: 16px;
+  color: #c9c5d6;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+@media (max-width: 640px) {
+  .project-card .project-visual.portrait-cover { gap: 5px; padding: 10px 8px; }
+  .gallery-caption { padding: 12px 16px; font-size: 12px; gap: 10px; }
+  .gallery-controls { padding: 0 14px 16px; gap: 9px; }
+  .gallery-controls > .icon-button { width: 34px; height: 38px; }
+  .gallery-thumbnails { gap: 6px; }
+}

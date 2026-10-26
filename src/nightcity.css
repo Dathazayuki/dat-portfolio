@@ -1,0 +1,236 @@
+/* Original AI cityscape; dark surfaces preserve contrast over neon scenery. */
+body {
+  isolation: isolate;
+  background: #060b14;
+}
+
+.city-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+  background: #060b14;
+}
+
+.city-skyline {
+  position: absolute;
+  inset: 0;
+  background: url('./assets/nightcity-skyline.png') 62% center / cover no-repeat;
+}
+
+.city-atmosphere {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, #050b14f0 0%, #050b14d9 29%, #070b1466 60%, #090a1833 100%),
+    linear-gradient(0deg, #070b14b3, transparent 40%, #070b1426);
+}
+
+.city-atmosphere::after {
+  content: '';
+  position: absolute;
+  inset: -5%;
+  background:
+    radial-gradient(ellipse at 80% 66%, #ff32b514, transparent 45%),
+    radial-gradient(ellipse at 36% 80%, #00e5ff12, transparent 55%);
+  animation: city-haze 20s ease-in-out infinite alternate;
+}
+
+.city-scanlines {
+  position: absolute;
+  inset: 0;
+  opacity: .09;
+  background: repeating-linear-gradient(0deg, #000 0 1px, transparent 1px 4px);
+}
+
+.site-header {
+  background: #050b14e8;
+  border-bottom-color: #79e8f537;
+  box-shadow: 0 1px 24px #00c8ff09;
+}
+
+.hero-content {
+  text-shadow: 0 2px 14px #03070e;
+}
+
+.hero-actions .button {
+  text-shadow: none;
+}
+
+.hero-name {
+  text-shadow: 0 0 36px #6df4e52b, 0 3px 20px #03070e;
+}
+
+.hero-bottomline {
+  border-top-color: #7bd8ee33;
+  color: #d7e5ee;
+}
+
+.hero-art .art-dot-grid,
+.hero-art .art-glow {
+  opacity: .35;
+}
+
+.art-code,
+.art-tag {
+  background: #070e1bef;
+  border-color: #86d6ef44;
+  box-shadow: 0 12px 35px #01050b66, inset 0 0 20px #5b96de08;
+}
+
+.status-dot {
+  background: #f1ef7e;
+  box-shadow: 0 0 12px #e5ef6555;
+}
+
+.disciplines {
+  background: #070e19e8;
+  border-block-color: #82c9e52e;
+}
+
+.about-section {
+  background: linear-gradient(110deg, #08101bef, #111020e8);
+  border-block-color: #a191e52e;
+}
+
+.project-card .project-info {
+  background: #080f1bf2;
+  padding: 24px;
+  border: 1px solid #8ed4ed2b;
+  border-top: 0;
+  border-radius: 0 0 9px 9px;
+}
+
+.project-card .project-cover {
+  border-color: #8ed4ed3d;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.project-card .project-cover:hover {
+  border-color: #f580df99;
+  box-shadow: 0 0 26px #ec42cd18;
+}
+
+.concept-card:last-child:nth-child(odd) .project-info {
+  padding: 24px;
+  border-top: 1px solid #8ed4ed2b;
+  border-radius: 9px;
+}
+
+.concept-card:last-child:nth-child(odd) .project-cover {
+  border-radius: 9px;
+}
+
+.experience-card,
+.skill-card {
+  background: linear-gradient(135deg, #101321f5, #080f1bf5);
+  border-color: #9ca8e533;
+}
+
+.experience-section {
+  border-bottom-color: #8ecbe12b;
+}
+
+.filters,
+.education-card {
+  background: #0c1423f5;
+  border-color: #9aa9df33;
+}
+
+.contact-section {
+  color: #ecf5ff;
+  background: linear-gradient(110deg, #081621f5, #1c1027f0);
+  border-top: 1px solid #70d8ec66;
+  border-bottom: 1px solid #e483d733;
+  box-shadow: inset 0 1px 35px #66e5e508;
+}
+
+.contact-heading > .eyebrow,
+.contact-heading > .eyebrow > span,
+.email-block > .eyebrow {
+  color: #9fe9ef;
+}
+
+.contact-heading h2 em {
+  color: #f2b1e6;
+  text-shadow: 0 0 36px #e462c322;
+}
+
+.contact-heading > p:not(.eyebrow) {
+  color: #d1d9ea;
+}
+
+.contact-star {
+  color: #efed8b;
+  text-shadow: 0 0 25px #e3e75d22;
+}
+
+.contact-bottom,
+.contact-socials {
+  border-top-color: #83c3e52e;
+}
+
+.copy-button {
+  color: #bdf7ef;
+  background: #122b36;
+  border-color: #79deea55;
+}
+
+.copy-button:hover {
+  background: #1d4050;
+}
+
+.copy-status {
+  color: #bdf7ef;
+}
+
+.contact-section :focus-visible {
+  outline-color: #c1f5d5;
+}
+
+.site-footer {
+  background: #060c17e8;
+  box-shadow: 0 0 0 100vmax #060c17e8;
+  clip-path: inset(0 -100vmax);
+}
+
+.section-heading h2,
+.section-description,
+.projects-section > .eyebrow {
+  text-shadow: 0 2px 16px #02060d;
+}
+
+@keyframes city-haze {
+  from { opacity: .5; transform: translate3d(0, 0, 0); }
+  to { opacity: 1; transform: translate3d(-1%, -1%, 0); }
+}
+
+@media (max-width: 900px) {
+  .city-skyline { background-position: 70% center; }
+  .city-atmosphere {
+    background: linear-gradient(90deg, #050b14ed, #050b14ad 55%, #090a185c);
+  }
+}
+
+@media (max-width: 640px) {
+  .city-skyline { background-position: 73% center; }
+  .city-atmosphere {
+    background: linear-gradient(90deg, #050b14eb, #050b14bd 65%, #090a1873);
+  }
+  .project-card .project-info { padding: 22px 20px; }
+  .concept-card:last-child:nth-child(odd) .project-info {
+    padding: 22px 20px;
+    border-top: 0;
+    border-radius: 0 0 9px 9px;
+  }
+  .concept-card:last-child:nth-child(odd) .project-cover {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .city-atmosphere::after { animation: none; }
+}
