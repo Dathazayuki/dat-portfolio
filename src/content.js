@@ -6,6 +6,9 @@ import presifyImage from "./assets/projects/presify.png";
 import zeroMenuImage from "./assets/projects/zero-menu.png";
 import zeroMannequinsImage from "./assets/projects/zero-mannequins.png";
 import zeroKitchenImage from "./assets/projects/zero-kitchen.png";
+import zeroLivingRoomImage from "./assets/projects/zero-living-room.png";
+import zeroArchiveImage from "./assets/projects/zero-archive.png";
+import zeroLoungeImage from "./assets/projects/zero-lounge.png";
 import mangaHomeImage from "./assets/projects/manga2099-home.png";
 import mangaLoginImage from "./assets/projects/manga2099-login.png";
 import mangaDetailsImage from "./assets/projects/manga2099-details.png";
@@ -17,7 +20,7 @@ export const profile = {
 };
 
 export const skillGroups = [
-  { icon: "game", title: "skillGame", caption: "gameCaption", tech: ["Unity", "C#", "State Machines", "ScriptableObject", "Object Pooling", "A*", "Yarn Spinner"] },
+  { icon: "game", title: "skillGame", caption: "gameCaption", tech: ["Unity", "C#", "State Machines", "Spine 2D", "ScriptableObject", "Object Pooling", "A*", "Distance Culling", "Yarn Spinner"] },
   { icon: "code", title: "skillWeb", caption: "webCaption", tech: ["React", "JavaScript", "HTML / CSS", "Tailwind CSS", "Node.js", "NestJS", "MongoDB", "MySQL", "Prisma", "Figma"] },
   { icon: "globe", title: "skillTools", caption: "toolsCaption", tech: ["Git", "C / C++", "Java"], includeSoftSkills: true },
 ];
@@ -27,25 +30,53 @@ export const projects = [
     id: "zero", title: "ZERO", type: "game", visual: "zero",
     images: [
       { src: zeroMenuImage, width: 1919, height: 1079, caption: { en: "ZERO — main menu, The Shift Never Ends", vi: "ZERO — menu chính, The Shift Never Ends" } },
-      { src: zeroMannequinsImage, width: 1869, height: 894, caption: { en: "ZERO — mannequins in a dark underground passage", vi: "ZERO — những hình nhân trong đường hầm tối" } },
-      { src: zeroKitchenImage, width: 1902, height: 882, caption: { en: "ZERO — the chef and kitchen environment", vi: "ZERO — đầu bếp và bối cảnh nhà bếp" } },
+      { src: zeroMannequinsImage, width: 1869, height: 894, caption: { en: "ZERO — mannequins in a dark underground passage (Flooded Cistern)", vi: "ZERO — những ma-nơ-canh trong hầm ngập nước (Flooded Cistern)" } },
+      { src: zeroKitchenImage, width: 1902, height: 882, caption: { en: "ZERO — the eerie chef and hotel kitchen environment", vi: "ZERO — đầu bếp quái dị và bối cảnh nhà bếp khách sạn" } },
+      { src: zeroLivingRoomImage, width: 1024, height: 546, caption: { en: "ZERO — eerie living room with vintage decor and dim lighting", vi: "ZERO — phòng khách quạnh quẽ với nội thất cổ điển và ánh đèn vàng mờ ảo" } },
+      { src: zeroArchiveImage, width: 1024, height: 447, caption: { en: "ZERO — gloomy archive room filled with confidential files and old typewriters", vi: "ZERO — phòng lưu trữ tài liệu u ám với các dãy tủ hồ sơ và máy đánh chữ cũ" } },
+      { src: zeroLoungeImage, width: 1024, height: 438, caption: { en: "ZERO — eerie jazz lounge and stage surrounded by uncanny mannequins", vi: "ZERO — quầy bar nhạc jazz ma mị với sân khấu và những ma-nơ-canh bất động" } },
     ],
-    tech: ["Unity", "Game Design", "Horror"],
-    format: { en: "ANOMALY OBSERVATION", vi: "QUAN SÁT ĐIỀU BẤT THƯỜNG" },
-    status: { en: "Concept", vi: "Ý tưởng" },
+    date: "2026",
+    tech: ["Unity 6", "C#", "URP", "Dynamic Object Pooling", "AI Navigation", "Unity Test Framework", "Input System", "Cinemachine", "Tripo3D / Meshy AI", "Clean Architecture"],
+    format: { en: "PSYCHOLOGICAL HORROR · ANOMALY HUNT", vi: "KINH DỊ TÂM LÝ · TÌM ĐIỂM DỊ THƯỜNG" },
+    status: { en: "In Development", vi: "Đang phát triển" },
     description: {
-      en: "Something in this room has changed. A horror game concept about observation, familiarity and unsettling details.",
-      vi: "Có điều gì đó trong căn phòng đã thay đổi. Ý tưởng game kinh dị về quan sát, sự quen thuộc và những chi tiết bất thường.",
+      en: "A first-person psychological horror game inspired by The Exit 8, expanded into a multi-stage campaign featuring infinite stairway loops, anomaly hunting rules, and intense survival minigames.",
+      vi: "Game kinh dị tâm lý góc nhìn thứ nhất lấy cảm hứng từ The Exit 8, mở rộng thành chiến dịch 5 chặng kịch tính với quy luật vòng lặp cầu thang vô tận, giải đố tìm điểm dị thường và các minigame sinh tồn rùng rợn.",
     },
     contributions: {
-      en: ["Explored an anomaly-observation gameplay concept.", "Developed directions for room atmosphere, visuals and audio."],
-      vi: ["Khám phá ý tưởng gameplay quan sát và tìm điều bất thường.", "Định hướng không khí căn phòng, hình ảnh và âm thanh."],
-    }, links: [],
+      en: [
+        "Engineered the infinite stairway loop with directional arrow mechanics and ~55% anomaly rates, implementing floor progression (0 → 8) with strict reset penalties and elevator transitions.",
+        "Architected a Zero-Allocation Dynamic Segment Object Pooling system (5 active segments streaming via anchor points) without runtime instantiate/destroy or teleportation.",
+        "Developed a comprehensive anomaly subsystem with strict AnomalyBehaviour lifecycles, 3-tier pacing (UneasyNormal, Minor, Major), diversity history tracking, and camera frustum/raycast gaze detection.",
+        "Structured a 5-stage campaign (Backrooms Chase, Daruma Hall, Calling Corridor, Watchful Hall, Flooded Cistern) decoupled through standardized IMinigameSession interfaces and Additive scene loading.",
+        "Built a responsive FirstPersonController with head bob, roll tilt, and surface footsteps, alongside a horror death State Machine (Jumpscare → Frozen → Blackout → Respawn) with FOV zoom punches and blood overlays.",
+        "Enforced Clean Architecture with isolated Assembly Definitions (.asmdef), an in-editor static analyzer (CodePolicyValidator) enforcing strict code metrics, and over 80 automated EditMode and PlayMode tests.",
+      ],
+      vi: [
+        "Thiết kế cơ chế vòng lặp cầu thang vô tận với quy luật mũi tên chỉ hướng và tỷ lệ dị thường ~55%; xây dựng hệ thống tiến trình tầng (0 → 8) phạt reset khi đi sai và mở thang máy chuyển chặng khi hoàn thành.",
+        "Xây dựng hệ thống Dynamic Segment Object Pooling (5 tầng active nối tiếp nhau theo điểm neo) đảm bảo chuyển động liền mạch, hoàn toàn không gọi Instantiate/Destroy hay dịch chuyển teleport người chơi.",
+        "Phát triển hệ sinh thái dị thường kế thừa AnomalyBehaviour với vòng đời chặt chẽ, AnomalyPacingDirector phân tầng 3 cấp độ, theo dõi lịch sử trải nghiệm (EncounterDiversityHistory) và kiểm tra góc nhìn camera Frustum/Raycast.",
+        "Thiết kế chiến dịch 5 chặng liên hoàn (Backrooms Chase, Daruma Hall, Calling Corridor, Watchful Hall, Flooded Cistern) độc lập hóa qua interface IMinigameSession và chuyển cảnh Additive Loading mượt mà.",
+        "Xây dựng FirstPersonController tích hợp Head Bob, Camera Roll tilt, tiếng bước chân theo bề mặt và State Machine xử lý cái chết (Jumpscare → Frozen → Blackout → Respawn) kết hợp hiệu ứng giật FOV và tràn máu màn hình.",
+        "Áp dụng Clean Architecture phân tách rõ rệt Assembly (.asmdef), xây dựng công cụ phân tích tĩnh trong Editor (CodePolicyValidator) kiểm soát chất lượng code, cùng hơn 80 unit & integration test (EditMode & PlayMode).",
+      ],
+    },
+    links: [
+      {
+        kind: "drive",
+        url: "https://drive.google.com/drive/folders/1VecR2UaDWEQ20lgLwuAdnbdLbfc2Dh57",
+        label: {
+          en: "Demo video & Playable build (Drive)",
+          vi: "Video demo & Bản chơi thử (Drive)",
+        },
+      },
+    ],
   },
   {
     id: "dream-witch", title: "Dream Witch", type: "game", visual: "witch", featured: true,
     images: [{ src: dreamWitchImage, width: 1265, height: 653, caption: { en: "Dream Witch — combat gameplay and player HUD", vi: "Dream Witch — gameplay chiến đấu và HUD người chơi" } }],
-    date: "03 — 07 / 2026", tech: ["Unity", "C#", "Yarn Spinner"],
+    date: "03 — 07 / 2026", tech: ["Unity", "C#", "A* Pathfinding", "Spine 2D", "State Machine", "Distance Culling", "ScriptableObject", "Yarn Spinner"],
     format: { en: "2D METROIDVANIA", vi: "METROIDVANIA 2D" },
     status: { en: "Project", vi: "Dự án" },
     description: {
@@ -53,10 +84,30 @@ export const projects = [
       vi: "Khám phá thế giới, làm chủ hình dạng mới. Game hành động platformer 2D với cơ chế biến đổi hình dạng nhân vật.",
     },
     contributions: {
-      en: ["Built Form Switch mechanics for a 2D Metroidvania action platformer.", "Structured gameplay with State Machines and a data-driven ScriptableObject approach.", "Implemented A* enemy pathfinding and custom Distance Culling for optimization."],
-      vi: ["Xây dựng cơ chế Form Switch cho game Metroidvania hành động platformer 2D.", "Tổ chức hệ thống bằng State Machine và ScriptableObject theo hướng data-driven.", "Áp dụng A* cho tìm đường của kẻ địch và tự xây dựng Distance Culling để tối ưu."],
+      en: [
+        "Built Form Switch and character transformation mechanics for a 2D Metroidvania action platformer.",
+        "Integrated Spine 2D skeletal animations for fluid player combat, responsive actions, and visual effects.",
+        "Structured gameplay systems using State Machines and a data-driven ScriptableObject architecture.",
+        "Implemented A* enemy pathfinding and built a custom Distance Culling system for performance optimization.",
+      ],
+      vi: [
+        "Xây dựng cơ chế Form Switch và biến đổi hình dạng nhân vật cho game Metroidvania hành động platformer 2D.",
+        "Tích hợp Spine 2D cho chuyển động mượt mà, animation chiến đấu sắc nét và hiệu ứng thị giác ấn tượng.",
+        "Tổ chức kiến trúc gameplay bằng State Machine kết hợp ScriptableObject theo hướng data-driven.",
+        "Áp dụng thuật toán tìm đường A* cho quái và tự xây dựng cơ chế Distance Culling để tối ưu hiệu năng.",
+      ],
     },
-    links: [{ kind: "code", url: "https://github.com/Dathazayuki/Doan_DreamWitch" }],
+    links: [
+      {
+        kind: "drive",
+        url: "https://drive.google.com/drive/folders/1XHRHLK7Wgd_ZtFNQWjv0JrRYse1uE8DH",
+        label: {
+          en: "Demo video & Playable build (Drive)",
+          vi: "Video demo & Bản chơi thử (Drive)",
+        },
+      },
+      { kind: "code", url: "https://github.com/Dathazayuki/Doan_DreamWitch" },
+    ],
   },
   {
     id: "manga2099", title: "Manga2099", type: "design", featured: true, team: 5, imageLayout: "portrait",
@@ -114,7 +165,17 @@ export const projects = [
     teamContributions: {
       en: ["Managed the project and designed the database.", "Designed multi-user slide editing and access permissions.", "Developed user interfaces for template projects and personal projects."],
       vi: ["Quản lý dự án và thiết kế cơ sở dữ liệu.", "Thiết kế tính năng nhiều người dùng chỉnh sửa slide và phân quyền truy cập.", "Phát triển giao diện cho trang dự án mẫu và dự án của tôi."],
-    }, links: [],
+    },
+    links: [
+      {
+        kind: "drive",
+        url: "https://drive.google.com/drive/folders/1hUPuxvh95OD5xT3AsPn4KShgbm9RSkfo",
+        label: {
+          en: "Demo video & Preview (Drive)",
+          vi: "Video demo & Bản chơi thử (Drive)",
+        },
+      },
+    ],
   },
   {
     id: "adventure-cube", title: "Adventure Cube", type: "game", visual: "cube", date: "07 / 2025",
@@ -129,7 +190,18 @@ export const projects = [
     contributions: {
       en: ["Built a complete mobile 3D casual game with multiple player skins.", "Implemented cube movement, coin collection, obstacles and enemies.", "Used Object Pooling for an endless map, a Singleton for global management and Coroutines for smooth movement."],
       vi: ["Phát triển game casual 3D trên điện thoại hoàn chỉnh với nhiều skin nhân vật.", "Xây dựng điều khiển Cube, thu thập xu, vượt chướng ngại vật và kẻ thù.", "Kết hợp Object Pooling tạo map vô tận, Singleton quản lý toàn cục và Coroutine cho chuyển động mượt mà."],
-    }, links: [{ kind: "code", url: "https://github.com/Dathazayuki/Adventure-Cube" }],
+    },
+    links: [
+      {
+        kind: "drive",
+        url: "https://drive.google.com/drive/folders/1tAUGODwgMRZV5Azn3gv9wnKlhP2eTjNN",
+        label: {
+          en: "Demo video & Playable build (Drive)",
+          vi: "Video demo & Bản chơi thử (Drive)",
+        },
+      },
+      { kind: "code", url: "https://github.com/Dathazayuki/Adventure-Cube" },
+    ],
   },
   {
     id: "ludo-online", title: "LUDO 3D Online", type: "game", visual: "ludo", date: "11 — 12 / 2025",
@@ -144,7 +216,18 @@ export const projects = [
     contributions: {
       en: ["Built a Unity client focused on 3D presentation, effects and network interactions.", "Used the FX Kandol Pack for visual effects.", "Implemented a C server for game logic and multiplayer connections."],
       vi: ["Xây dựng client Unity với giao diện 3D, hiệu ứng và tương tác mạng.", "Sử dụng FX Kandol Pack cho hiệu ứng hình ảnh.", "Lập trình server bằng C để xử lý logic và kết nối nhiều người chơi."],
-    }, links: [{ kind: "code", url: "https://github.com/Dathazayuki/Ludo3DOnline" }],
+    },
+    links: [
+      {
+        kind: "drive",
+        url: "https://drive.google.com/drive/folders/1nN03Extcc4DjOg8VgLNKuz6mXddoR33L",
+        label: {
+          en: "Demo video & Playable build (Drive)",
+          vi: "Video demo & Bản chơi thử (Drive)",
+        },
+      },
+      { kind: "code", url: "https://github.com/Dathazayuki/Ludo3DOnline" },
+    ],
   },
 
 ];
@@ -167,7 +250,7 @@ export const copy = {
     illustration: "CSS illustration", team: "Team", people: "people", duration: "Duration", timeline: "Timeline", status: "Status",
     gallery: "Project screenshots", previousImage: "Previous image", nextImage: "Next image", showImage: "Show image", imageCount: "images",
     contributions: "What I worked on", teamContributions: "Our team's contributions", teamNote: "Built as a team. The contributions below describe the team's work.",
-    stack: "Built with", code: "View source", live: "Visit website", video: "Watch demo", figma: "View Figma design", prototype: "Try prototype", close: "Close project", preview: "Project illustration, not a product screenshot",
+    stack: "Built with", code: "View source", live: "Visit website", video: "Watch demo", drive: "Demo video & Playable build (Drive)", figma: "View Figma design", prototype: "Try prototype", close: "Close project", preview: "Project illustration, not a product screenshot",
     aboutLabel: "BEHIND THE CODE", aboutTitle: "Curious mind.", aboutAccent: "Builder at heart.",
     aboutLead: "I'm Trịnh Minh Đạt, a Vietnamese–Japanese IT student at Hanoi University of Science and Technology.",
     aboutBody: "I enjoy connecting creative ideas with structured systems: a satisfying player mechanic, a clear interface, or a backend that brings it all together. I learn by building, solving problems and working with a team.",
@@ -201,7 +284,7 @@ export const copy = {
     illustration: "Minh họa CSS", team: "Đội nhóm", people: "người", duration: "Thời gian", timeline: "Giai đoạn", status: "Trạng thái",
     gallery: "Ảnh thực tế dự án", previousImage: "Ảnh trước", nextImage: "Ảnh tiếp theo", showImage: "Xem ảnh", imageCount: "ảnh",
     contributions: "Phần việc của mình", teamContributions: "Đóng góp của đội nhóm", teamNote: "Dự án được thực hiện cùng đội nhóm. Phần dưới mô tả công việc của cả đội.",
-    stack: "Công nghệ sử dụng", code: "Xem mã nguồn", live: "Truy cập website", video: "Xem video demo", figma: "Xem thiết kế Figma", prototype: "Trải nghiệm prototype", close: "Đóng dự án", preview: "Hình minh họa dự án, không phải ảnh sản phẩm",
+    stack: "Công nghệ sử dụng", code: "Xem mã nguồn", live: "Truy cập website", video: "Xem video demo", drive: "Video demo & Bản chơi thử (Drive)", figma: "Xem thiết kế Figma", prototype: "Trải nghiệm prototype", close: "Đóng dự án", preview: "Hình minh họa dự án, không phải ảnh sản phẩm",
     aboutLabel: "PHÍA SAU NHỮNG DÒNG CODE", aboutTitle: "Luôn tò mò.", aboutAccent: "Không ngừng tạo dựng.",
     aboutLead: "Mình là Trịnh Minh Đạt, sinh viên Công nghệ thông tin Việt–Nhật tại Đại học Bách khoa Hà Nội.",
     aboutBody: "Mình thích kết nối ý tưởng sáng tạo với hệ thống có cấu trúc: một cơ chế nhân vật thú vị, giao diện dễ dùng hay backend liên kết mọi thứ. Mình học qua việc xây dựng sản phẩm, giải quyết vấn đề và làm việc cùng đồng đội.",
